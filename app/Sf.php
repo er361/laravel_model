@@ -11,7 +11,9 @@ class Sf extends Model
         'fist_name',
         'last_name'
     ];
+
     public $timestamps = false;
+
     public function setAttribute($key,$value)
     {
         $snake = Str::snake($key);

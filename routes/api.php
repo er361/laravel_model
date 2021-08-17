@@ -18,10 +18,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('test',function(){
-//    $sf = new \App\Sf();
-//    $sf->firstName = 'ss';
-//    $sf->lastName = 'ls';
-//    $sf->save();
-    return \App\Sf::first();
+Route::get('createModel',function(){
+    $sf = new \App\Sf();
+    $sf->firstName = 'ss';
+    $sf->lastName = 'ls';
+    $sf->save();
+    return $sf;
+});
+
+Route::get('getModel',function (){
+    $sf = \App\Sf::first();
+    return [
+        'firstName' => $sf->firstName,
+        'lastName' => $sf->lastName
+    ];
 });
